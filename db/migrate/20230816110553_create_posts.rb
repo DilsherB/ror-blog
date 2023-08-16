@@ -9,7 +9,11 @@ class CreatePosts < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    # add foreign keys
     add_foreign_key :posts, :users, column: :author_id
+
+    # add index for faster search
     add_index :posts, :author_id
   end
 end
